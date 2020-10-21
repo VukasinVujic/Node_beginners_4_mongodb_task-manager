@@ -6,12 +6,6 @@ const { MongoClient, ObjectID } = require("mongodb");
 // const MongoClient = mongodb.MongoClient;
 // const ObjectID = mongodb.ObjectID;
 
-// a function to make a new id
-const id = new ObjectID();
-
-console.log(id);
-console.log(id.getTimestamp());
-
 const connectionURL = "mongodb://127.0.0.1:27017";
 
 const databaseName = "task-manger";
@@ -25,54 +19,50 @@ MongoClient.connect(
     }
 
     const db = client.db(databaseName);
-    //insert one user
-    // db.collection("users").insertOne(
-    //   // insertone will be called as async function
-    //   {
-    //     name: "Vikram",
-    //     age: 33,
-    //   },
-    //   (error, result) => {
+
+    // for id has to be like that because id is in binary format
+    // db.collection("users").findOne(
+    //   { _id: new ObjectID("5f90553b5a6a5f45bb4e018b") },
+    //   (error, user) => {
     //     if (error) {
-    //       return console.log("Unable to insert");
+    //       return console.log("Couldn't find user");
     //     }
 
-    //     console.log(result.ops);
+    //     console.log(user);
     //   }
     // );
+    // db.collection("users")
+    //   .find({ age: 33 })
+    //   .toArray((error, users) => {
+    //     console.log(users);
+    //   });
 
-    // db.collection("users").insertMany(
-    //   [
-    //     {
-    //       name: "Jen",
-    //       age: 28,
-    //     },
-    //     {
-    //       name: "Gunter",
-    //       age: 27,
-    //     },
-    //   ],
-    //   (error, result) => {
-    //     if (error) {
-    //       return console.log("Unable to insert documents(objects)");
-    //     }
+    // db.collection("users")
+    //   .find({ age: 33 })
+    //   .count((error, users) => {
+    //     console.log(users);
+    //   });
 
-    //     console.log(result.ops);
-    //   }
-    // );
+    db.collection("user2").findOne(
+      {
+        _id: new ObjectID("5f901fea2398e922bcabadb1"),
+      },
+      (error, result) => {
+        if (error) {
+          return console.log("Unable to find");
+        }
+        console.log(result);
+      }
+    );
 
-    // db.collection("user2").insertMany(
-    //   [
-    //     { description: "beautiful", complited: true },
-    //     { description: "ugly", complited: false },
-    //     { description: "strong", complited: true },
-    //   ],
-    //   (error, result) => {
-    //     if (error) {
-    //       return console.log("Unable to insert documents");
-    //     }
-    //     console.log(result.ops);
-    //   }
-    // );
+    db.collection("user2")
+      .find({ complited: true })
+      .toArray((error, result) => {
+        if (error) {
+          return console.log("Unable to find");
+        }
+
+        console.log(result);
+      });
   }
 );
