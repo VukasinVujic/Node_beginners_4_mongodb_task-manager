@@ -1,10 +1,20 @@
-const mongodb = require("mongodb");
-const MongoClient = mongodb.MongoClient;
+//new way
+const { MongoClient, ObjectID } = require("mongodb");
+
+// old way
+// const mongodb = require("mongodb");
+// const MongoClient = mongodb.MongoClient;
+// const ObjectID = mongodb.ObjectID;
+
+// a function to make a new id
+const id = new ObjectID();
+
+console.log(id);
+console.log(id.getTimestamp());
 
 const connectionURL = "mongodb://127.0.0.1:27017";
 
 const databaseName = "task-manger";
-// const databaseName2 = "task-manger2";
 
 MongoClient.connect(
   connectionURL,
@@ -15,12 +25,11 @@ MongoClient.connect(
     }
 
     const db = client.db(databaseName);
-    // const db2 = client.db(databaseName2);
-    // //insert one user
+    //insert one user
     // db.collection("users").insertOne(
+    //   // insertone will be called as async function
     //   {
-    //     // insertone will be called as async function
-    //     name: "Vukasin",
+    //     name: "Vikram",
     //     age: 33,
     //   },
     //   (error, result) => {
@@ -52,18 +61,18 @@ MongoClient.connect(
     //   }
     // );
 
-    db.collection("user2").insertMany(
-      [
-        { description: "beautiful", complited: true },
-        { description: "ugly", complited: false },
-        { description: "strong", complited: true },
-      ],
-      (error, result) => {
-        if (error) {
-          return console.log("Unable to insert documents");
-        }
-        console.log(result.ops);
-      }
-    );
+    // db.collection("user2").insertMany(
+    //   [
+    //     { description: "beautiful", complited: true },
+    //     { description: "ugly", complited: false },
+    //     { description: "strong", complited: true },
+    //   ],
+    //   (error, result) => {
+    //     if (error) {
+    //       return console.log("Unable to insert documents");
+    //     }
+    //     console.log(result.ops);
+    //   }
+    // );
   }
 );
