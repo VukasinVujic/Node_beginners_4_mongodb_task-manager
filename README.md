@@ -9,8 +9,9 @@ give name to database(databaseName)
 when conect to db start callback function
 inside callback function add the name of collection(table) "users"
 
-deleted, in commit "Adding documents in collection"
+deleted, you can find it in commit "Adding documents in collection"
 add in that table one object that is like a row in table
 add in that table many object that is like a row in table
 
-find one document
+deleted, you can find it in commit "findOne & find"
+findOne document or find more
