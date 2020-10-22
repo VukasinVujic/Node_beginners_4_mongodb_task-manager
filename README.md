@@ -20,3 +20,6 @@ deleted, you can find it in commit "updateOne"
 updatedOne, wich return promise , use \$set operator
 
 updateMany same as updateOne
+
+commit "deleteOne & deleteMany"
+deleteOne, deleteMany, just put filter and that is it. return promise
