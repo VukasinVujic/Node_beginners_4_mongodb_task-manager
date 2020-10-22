@@ -26,8 +26,9 @@ MongoClient.connect(
           _id: new ObjectID("5f9001505556df072675ab7a"),
         },
         {
-          $set: {
-            name: "Novo update ime",
+          $inc: {
+            // age: -1
+            age: 1,
           },
         }
       )

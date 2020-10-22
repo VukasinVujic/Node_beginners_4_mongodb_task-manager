@@ -15,3 +15,6 @@ add in that table many object that is like a row in table
 
 deleted, you can find it in commit "findOne & find"
 findOne document or find more
+
+deleted, you can find it in commit "updateOne"
+updatedOne, wich return promise , use \$set operator
