@@ -18,3 +18,5 @@ findOne document or find more
 
 deleted, you can find it in commit "updateOne"
 updatedOne, wich return promise , use \$set operator
+
+updateMany same as updateOne

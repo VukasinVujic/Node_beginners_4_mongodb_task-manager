@@ -20,19 +20,35 @@ MongoClient.connect(
 
     const db = client.db(databaseName);
 
-    db.collection("users")
-      .updateOne(
+    // db.collection("users")
+    //   .updateOne(
+    //     {
+    //       _id: new ObjectID("5f9001505556df072675ab7a"),
+    //     },
+    //     {
+    //       $inc: {
+    //         // age: -1
+    //         age: 1,
+    //       },
+    //     }
+    //   )
+    //   //updateOne returns promise that is why we are chaning right away then and catch
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    db.collection("user2")
+      .updateMany(
+        { complited: false },
         {
-          _id: new ObjectID("5f9001505556df072675ab7a"),
-        },
-        {
-          $inc: {
-            // age: -1
-            age: 1,
+          $set: {
+            complited: true,
           },
         }
       )
-      //updateOne returns promise that is why we are chaning right away then and catch
       .then((result) => {
         console.log(result);
       })
