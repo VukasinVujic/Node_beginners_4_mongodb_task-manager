@@ -23,3 +23,6 @@ updateMany same as updateOne
 
 commit "deleteOne & deleteMany"
 deleteOne, deleteMany, just put filter and that is it. return promise
+
+commit "Mongoose, make a model"
+import, conect moongose, create a model, create an instance of model, save instance in to the db
